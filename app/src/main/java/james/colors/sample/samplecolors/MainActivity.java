@@ -15,9 +15,6 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private FloatingActionButton addButton;
-
     private ListAdapter adapter;
 
     @Override
@@ -25,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        addButton = findViewById(R.id.add);
+        FloatingActionButton addButton = findViewById(R.id.add);
         addButton.setOnClickListener(new View.OnClickListener() {
 
             private EditText editText;
@@ -54,8 +51,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         adapter = new ListAdapter(this);
         recyclerView.setAdapter(adapter);
 
